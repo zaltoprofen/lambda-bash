@@ -12,5 +12,5 @@ aws ecr get-login-password --region $region \
   | docker login -u AWS --password-stdin $registry
 
 docker push $ecr_repository
-docker inspect 378050550127.dkr.ecr.ap-northeast-1.amazonaws.com/lambda-bash \
+docker inspect ${account_id}.dkr.ecr.ap-northeast-1.amazonaws.com/lambda-bash \
   -f '{{ index .RepoDigests 0 }}' > image-uri.txt
